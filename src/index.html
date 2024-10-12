@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Empréstimo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!--
+    Esta é uma tabela HTML com elementos <input> que permitem ao usuário inserir dados e elementos <span> nos quais o programa pode exibir seus resultados. Esses elementos têm identificações como "interest" e "years". Essas identificações são usadas no código JavaScript que vem após a tabela. Note que alguns dos elementos de entrada definem rotinas de tratamento de evento "onchange" ou "onclick". Elas especificam strings de código JavaScript a ser executado quando o usuário insere dados ou dá um clique.
+    -->
+    <table>
+        <tr><th>Insira os dados do empréstimo:</th>
+            <td></td>
+            <th>Saldo do Empréstimo, Equidade Acumulada e Pagamentos de Juros</th></tr>
+        <tr><td>Valor do empréstimo (R$):</td>
+            <td><input id="amount" onchange="calculate();"></td>
+            <td rowspan=8>
+                <canvas id="graph" width="400" height="250"></canvas></td></tr>
+        <tr><td>Juros anuais (%):</td>
+            <td><input id="apr" onchange="calculate();"></td></tr>
+        <tr><td>Período de pagamento (anos):</td>
+            <td><input id="years" onchange="calculate();"></td>
+        <tr><td>CEP (para encontrar credores):</td>
+            <td><input id="zipcode" onchange="calculate();"></td>
+        <tr><th>Pagamentos Aproximados:</th>
+            <td><button onclick="calculate();">Calcular</button></td></tr>
+        <tr><td>Pagamento mensal:</td>
+            <td>R$<span class="output" id="payment"></span></td></tr>
+        <tr><td>Pagamento total:</td>
+            <td>R$<span class="output" id="total"></span></td></tr>
+        <tr><td>Juros totais:</td>
+            <td>R$<span class="output" id="totalinterest"></span></td></tr>
+        <tr><th>Patrocinadores:</th><td colspan=2>
+            Solicite seu empréstimo com um destes excelentes credores:
+            <div id="lenders"></div></td></tr>
+    </table>
+</body>
+</html>
