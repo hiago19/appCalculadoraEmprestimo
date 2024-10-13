@@ -152,7 +152,7 @@ function chart(principal, interest, monthly, payments) {
     g.fillStyle = "#f88"; // Vermelho-claro
     g.fill(); // Preenche o triângulo
     g.font = "bold 12px sans-serif"; // Define uma fonte
-    g.fillText("Total Interest Payments", 20, 20); // Desenha texto na legenda
+    g.fillText("Total de Pagamentos de Juros", 20, 20); // Desenha texto na legenda
     // O capital acumulado não é linear e é mais complicado de representar no gráfico
     var equity = 0;
     g.beginPath(); // Inicia uma nova figura
@@ -167,7 +167,7 @@ function chart(principal, interest, monthly, payments) {
     g.closePath(); // E volta para o ponto inicial
     g.fillStyle = "green"; // Agora usa tinta verde
     g.fill(); // E preenche a área sob a curva
-    g.fillText("Total Equity", 20, 35); // Rotula em verde
+    g.fillText("Total de Capital", 20, 35); // Rotula em verde
     // Faz laço novamente, como acima, mas representa o saldo devedor como uma linha preta grossa no gráfico
     var bal = principal;
     g.beginPath();
@@ -180,14 +180,14 @@ function chart(principal, interest, monthly, payments) {
     g.lineWidth = 3; // Usa uma linha grossa
     g.stroke(); // Desenha a curva do saldo
     g.fillStyle = "black"; // Troca para texto preto
-    g.fillText("Loan Balance", 20, 50); // Entrada da legenda
+    g.fillText("Saldo do Empréstimo", 20, 50); // Entrada da legenda
     // Agora faz marcações anuais e os números de ano no eixo X
     g.textAlign = "center"; // Centraliza o texto nas marcas
     var y = amountToY(0); // Coordenada Y do eixo X
     for (var year = 1; year * 12 <= payments; year++) { // Para cada ano
         var x = paymentToX(year * 12); // Calcula a posição da marca
         g.fillRect(x - 0.5, y - 3, 1, 3); // Desenha a marca
-        if (year == 1) g.fillText("Year", x, y - 5); // Rotula o eixo
+        if (year == 1) g.fillText("Ano", x, y - 5); // Rotula o eixo
         if (year % 5 == 0 && year * 12 !== payments) // Numera cada 5 anos
             g.fillText(String(year), x, y - 5);
     }
