@@ -138,6 +138,7 @@ function chart(principal, interest, monthly, payments) {
     // Obtém o objeto "contexto" de <canvas> que define a API de desenho
     var g = graph.getContext("2d"); // Todo desenho é feito com esse objeto
     var width = graph.width, height = graph.height; // Obtém o tamanho da tela de desenho
+    
     // Essas funções convertem números de pagamento e valores monetários em pixels
     function paymentToX(n) { return n * width / payments; }
     function amountToY(a) { return height - (a * height / (monthly * payments * 1.05)); }
